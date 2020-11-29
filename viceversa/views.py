@@ -7,5 +7,15 @@ def home(request):
 def reverse(request):
 	user_text = request.GET['usertext']
 	reversed_text = user_text[::-1]
-	#print(reversed_text)
-	return render(request, 'reverse.html', {'userText':user_text, 'reversedText':reversed_text})
+	
+	# number = 0;
+	# for symbol in user_text:
+	# 	if (symbol.isspace()):
+	# 		number = number + 1
+	# print('number = ', number)
+
+	words = user_text.split()
+	number_of_words = len(words)
+
+	return render(request, 'reverse.html', 
+		{'userText':user_text, 'reversedText':reversed_text, 'numberOfWords':number_of_words})
